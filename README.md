@@ -4,8 +4,6 @@
 
 A production-grade payout orchestration engine that routes investor payments across **30+ countries** through optimal payment rails — ACH, SEPA, BACS, Zengin, GIRO, CHATS, and more. Built with idempotent execution, categorized exception handling, and immutable audit trails.
 
-> Inspired by a production system processing 1,000+ investor payouts across 30+ countries at a $1B+ AUM alternative investment platform. That system reduced payout processing from **~40 hours to ~15 minutes** with a **94% day-1 completion rate**.
-
 ---
 
 ## Architecture
@@ -211,19 +209,6 @@ payout-engine/
 ├── docker-compose.yml
 └── pyproject.toml
 ```
-
----
-
-## Production Context
-
-This demo implements the core patterns from a production system that:
-- Processes **1,000+ investor payouts per liquidation event**
-- Routes payments across **30+ countries** through **3 payment providers** (ACH, wire, cross-border)
-- Reduced processing time from **~40 hours** (manual) to **~15 minutes** (automated)
-- Achieved **94% payout completion on Day 1** of its first production run
-- Maintains **zero duplicate payments** through idempotent design
-
-The production system integrates with Modern Treasury, Dwolla, and Goldman Sachs TxB. This demo uses mock providers to demonstrate the architectural patterns without requiring real banking credentials.
 
 ---
 
