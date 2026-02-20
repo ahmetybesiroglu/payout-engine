@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  payout-engine:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./payout_engine.db
+      - LOG_LEVEL=INFO
+      - MOCK_FAILURE_RATE=0.05
+      - MOCK_LATENCY_MS=100
+    volumes:
+      - db-data:/app
+
+volumes:
+  db-data:
