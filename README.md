@@ -12,7 +12,7 @@ A production-grade payout orchestration engine that routes investor payments acr
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│                          FastAPI (REST)                               │
+│                          FastAPI (REST)                              │
 │   POST /api/runs          GET /api/payouts         GET /health       │
 │   GET  /api/runs/{id}     GET /api/payouts/{id}/trace                │
 └──────────┬───────────────────────────────────────────────────────────┘
@@ -22,14 +22,14 @@ A production-grade payout orchestration engine that routes investor payments acr
 │                       Payout Orchestrator                            │
 │                                                                      │
 │   For each investor payout:                                          │
-│   ┌─────────────┐   ┌──────────────┐   ┌─────────────────────────┐  │
-│   │ Eligibility  │──▶│ Rail Selector │──▶│ Payment Provider (Mock) │  │
-│   │    Check     │   │ (30+ routes) │   │  ACH / Wire / X-Border  │  │
-│   └─────────────┘   └──────────────┘   └─────────────────────────┘  │
-│          │                  │                       │                 │
-│          ▼                  ▼                       ▼                 │
+│   ┌─────────────┐   ┌──────────────┐   ┌──────────────────────────┐  │
+│   │ Eligibility │──▶│ Rail Selector│──▶│ Payment Provider (Mock)  │  │
+│   │    Check    │   │ (30+ routes) │   │  ACH / Wire / X-Border   │  │
+│   └─────────────┘   └──────────────┘   └──────────────────────────┘  │
+│          │                  │                       │                │
+│          ▼                  ▼                       ▼                │
 │   ┌──────────────────────────────────────────────────────────────┐   │
-│   │              Immutable Audit Trail (SQLite)                   │   │
+│   │              Immutable Audit Trail (SQLite)                  │   │
 │   │   Every state change logged: eligibility, routing, execution │   │
 │   └──────────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────┘
